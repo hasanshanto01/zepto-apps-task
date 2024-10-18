@@ -87,7 +87,6 @@ body {
   width: 100%;
   height: 100%;
   padding: 16px;
-  /* background: var(--semi-transparent-primary-green); */
   background: var(--semi-transparent-light-blue);
 }
 
@@ -157,12 +156,10 @@ body {
 .spinner-container {
   margin: 32px auto;
   width: fit-content;
-  display: none;
 }
 
 .books-container {
-  display: none;
-  /* display: grid; */
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 32px;
 }
@@ -231,7 +228,10 @@ body {
 .content-top .fa-heart {
   font-size: 18px;
   cursor: pointer;
-  /* color: var(--primary-red); */
+}
+
+.liked {
+  color: var(--primary-red);
 }
 
 .overlay-content .book-title {
@@ -244,8 +244,7 @@ body {
 
 .overlay-content .details-btn-container {
   margin-top: 8px;
-  display: none;
-  /* display: flex; */
+  display: flex;
   justify-content: center;
 }
 
