@@ -2,12 +2,24 @@
 const baseUrl = "https://gutendex.com/books";
 
 // elements
+const genreSelect = document.querySelector("#genre");
 const searchInput = document.querySelector("#search");
 const contentContainer = document.querySelector(".content-container");
 const spinnerContainer = document.querySelector(".spinner-container");
 const booksContainer = document.querySelector(".books-container");
 const btnContainer = document.querySelector(".btn-container");
 const notFoundMsg = document.querySelector(".not-found");
+
+// handle filter by genre
+genreSelect.addEventListener("change", (e) => {
+  const value = e.target.value.trim();
+  if (value) {
+    const encodedValue = encodeURIComponent(value);
+    handleBooksFetch(`${baseUrl}?topic=${encodedValue}`);
+  } else {
+    handleBooksFetch(baseUrl);
+  }
+});
 
 // debouncer for search
 const debouncer = (func, delay) => {
@@ -29,7 +41,6 @@ searchInput.addEventListener(
     const value = e.target.value.trim();
     if (value) {
       const encodedValue = encodeURIComponent(value);
-      console.log("encodedValue:", encodedValue);
       handleBooksFetch(`${baseUrl}?search=${encodedValue}`);
     } else {
       handleBooksFetch(baseUrl);
@@ -148,25 +159,6 @@ const displayContent = (data) => {
   }
 };
 
-// handle books fetching
-const handleBooksFetch = (url) => {
-  window.scrollTo(0, 0);
-
-  spinnerContainer.style.display = "block";
-  booksContainer.style.display = "none";
-  btnContainer.style.display = "none";
-
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      // console.log("Books data:", data);
-      if (data) {
-        displayContent(data);
-      }
-    })
-    .catch((err) => console.log("Books data fetching error:", err));
-};
-
 // handle wishlist
 const handleWishlist = (data) => {
   const likedItems = JSON.parse(localStorage.getItem("liked-items")) || [];
@@ -179,7 +171,24 @@ const handleWishlist = (data) => {
   localStorage.setItem("liked-items", JSON.stringify(likedItems));
 };
 
-console.log("home");
+// handle books fetching
+const handleBooksFetch = (url) => {
+  window.scrollTo(0, 0);
+
+  spinnerContainer.style.display = "block";
+  booksContainer.style.display = "none";
+  btnContainer.style.display = "none";
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("Books data:", data);
+      if (data) {
+        displayContent(data);
+      }
+    })
+    .catch((err) => console.log("Books data fetching error:", err));
+};
 
 // initial books load
 window.onload = () => {

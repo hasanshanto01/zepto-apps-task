@@ -121,11 +121,15 @@ body {
 }
 
 .filter-container {
-  /* border: 1px solid violet; */
   display: flex;
   justify-content: end;
   align-items: center;
   gap: 16px;
+}
+
+.dropdown-box,
+.search-box {
+  width: 25%;
 }
 
 .inputField {
@@ -297,6 +301,11 @@ body {
 
 /* responsive style */
 @media only screen and (max-width: 992px) {
+  .dropdown-box,
+  .search-box {
+    width: 35%;
+  }
+
   .books-container {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -323,6 +332,16 @@ body {
 
   .main-container {
     padding: 16px;
+  }
+
+  .filter-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .dropdown-box,
+  .search-box {
+    width: 100%;
   }
 
   .books-container {
