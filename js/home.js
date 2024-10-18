@@ -13,7 +13,8 @@ const notFoundMsg = document.querySelector(".not-found");
 // handle filter by genre
 genreSelect.addEventListener("change", (e) => {
   const value = e.target.value.trim();
-  if (value) {
+  console.log("value:", value);
+  if (value !== "") {
     const encodedValue = encodeURIComponent(value);
     handleBooksFetch(`${baseUrl}?topic=${encodedValue}`);
   } else {
@@ -182,7 +183,7 @@ const handleBooksFetch = (url) => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      console.log("Books data:", data);
+      //   console.log("Books data:", data);
       if (data) {
         displayContent(data);
       }
