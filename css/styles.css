@@ -121,8 +121,37 @@ body {
   padding: 16px 80px;
 }
 
+.filter-container {
+  /* border: 1px solid violet; */
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 16px;
+}
+
+.inputField {
+  width: 100%;
+  border: 1px solid var(--semi-transparent-primary-green);
+  border-radius: 6px;
+  padding: 8px 12px;
+  outline: none;
+  font-size: 14px;
+}
+
+.inputField:focus {
+  border: 1px solid var(--primary-green);
+}
+
 .content-container {
-  /* border: 1px solid red; */
+  margin-top: 16px;
+}
+
+.not-found {
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--primary-red);
+  display: none;
 }
 
 .spinner-container {
