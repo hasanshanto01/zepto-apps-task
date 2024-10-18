@@ -156,11 +156,13 @@ body {
 .spinner-container {
   margin: 32px auto;
   width: fit-content;
+  display: none;
 }
 
 .books-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+  grid-template-columns: repeat(4, 1fr);
   gap: 32px;
 }
 
@@ -294,6 +296,18 @@ body {
 }
 
 /* responsive style */
+@media only screen and (max-width: 992px) {
+  .books-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .books-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media only screen and (max-width: 576px) {
   .nav-container {
     padding: 0 16px;
@@ -309,6 +323,10 @@ body {
 
   .main-container {
     padding: 16px;
+  }
+
+  .books-container {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 /* responsive style */

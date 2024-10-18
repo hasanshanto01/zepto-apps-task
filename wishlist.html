@@ -6,6 +6,8 @@
     <title>LitCorner</title>
 
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/spinner.css" />
+
     <!-- font awesome link -->
     <link
       rel="stylesheet"
@@ -15,6 +17,10 @@
       referrerpolicy="no-referrer"
     />
     <!-- font awesome link -->
+
+    <!-- aos animation link -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- aos animation link -->
   </head>
   <body>
     <header>
@@ -69,8 +75,41 @@
       </nav>
     </header>
 
-    <main class="main-container"></main>
+    <main class="main-container">
+      <!-- books display section -->
+      <section class="content-container">
+        <p class="not-found">No books found</p>
+
+        <div class="spinner-container">
+          <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+          </div>
+        </div>
+
+        <div class="books-container">
+          <!-- books will be here -->
+        </div>
+
+        <div class="btn-container">
+          <!-- btns will be here -->
+        </div>
+      </section>
+      <!-- books display section -->
+    </main>
 
     <script src="./js/index.js"></script>
+    <script src="./js/wishlist.js"></script>
+
+    <!-- aos animation script -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!-- aos animation script -->
   </body>
 </html>
